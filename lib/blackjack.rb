@@ -5,13 +5,11 @@ def welcome
 end
 
 def deal_card
-  card = Random.new
-  card.rand(1..11)
+  rand(1..11)
 end
 
 def display_card_total(card_total)
   puts "Your cards add up to #{card_total}"
-  card_total
 end
 
 def prompt_user
@@ -39,12 +37,9 @@ def hit?(card_total)
     card_total
   elsif user_input == "h"
     card_total += deal_card
-    card_total
-  elsif user_input != "s" && user_input != "h"
+  else
     invalid_command
-    prompt_user
-    user_input = get_user_input
-    card_total
+    hit?(card_total)
   end
 end
 
